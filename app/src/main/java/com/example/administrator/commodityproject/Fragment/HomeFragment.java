@@ -1,21 +1,21 @@
 package com.example.administrator.commodityproject.Fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.administrator.commodityproject.Activity.WebViewActivity;
 import com.example.administrator.commodityproject.Adapter.HomeGridViewAdapter;
 import com.example.administrator.commodityproject.Bean.Ab5Bean;
+import com.example.administrator.commodityproject.Bean.GoodsBean;
 import com.example.administrator.commodityproject.Bean.HomeBean;
 import com.example.administrator.commodityproject.Utils.DataInterface;
 import com.example.administrator.commodityproject.Utils.GlideImageLoader;
@@ -39,6 +39,7 @@ public class HomeFragment extends Fragment implements DataInterface {
     private List<String> imgList=new ArrayList<>();
     private List<String> urlList=new ArrayList<>();
     private List<Ab5Bean> ab5BeanList=new ArrayList<>();
+    private List<GoodsBean> goodsListBeanXList=new ArrayList<>();
     private Banner banner;
     private GridView gridView;
 
@@ -48,6 +49,13 @@ public class HomeFragment extends Fragment implements DataInterface {
         View view= inflater.inflate(R.layout.fragment_home, null);
         banner = (Banner) view.findViewById(R.id.banner);
         gridView = (GridView) view.findViewById(R.id.gv);
+        RecyclerView recyclerView= (RecyclerView) view.findViewById(R.id.rv_one);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        linearLayoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        //设置适配器
+        GalleryAdapter galleryAdapter = new GalleryAdapter(getActivity(), goodsListBeanXList);
+        recyclerView.setAdapter(galleryAdapter);
         return view;
     }
 
@@ -65,6 +73,19 @@ public class HomeFragment extends Fragment implements DataInterface {
         HomeBean homeBean = gson.fromJson(vaule, HomeBean.class);
         List<HomeBean.DataBean.Ad1Bean> ad1 = homeBean.getData().getAd1();
         List<HomeBean.DataBean.Ad5Bean> ad5 = homeBean.getData().getAd5();
+        List<HomeBean.DataBean.BestSellersBean> bestSellers = homeBean.getData().getBestSellers();
+        for(HomeBean.DataBean.BestSellersBean sellersBean:bestSellers)
+        {
+            List<HomeBean.DataBean.BestSellersBean.GoodsListBeanX> goodsList = sellersBean.getGoodsList();
+            for(HomeBean.DataBean.BestSellersBean.GoodsListBeanX gl:goodsList)
+            {
+                String goods_img = gl.getGoods_img();
+                String goods_name = gl.getGoods_name();
+                String shop_price = gl.getShop_price()+"";
+                GoodsBean goodsBean = new GoodsBean(goods_img, goods_name, shop_price);
+                goodsListBeanXList.add(goodsBean);
+            }
+        }
         for(HomeBean.DataBean.Ad1Bean ab1:ad1)
         {
             String image = ab1.getImage();
@@ -87,7 +108,6 @@ public class HomeFragment extends Fragment implements DataInterface {
             }
         });
     }
-
     private void setBanner() {
         banner.setImageLoader(new GlideImageLoader());
         banner.setImages(imgList);

@@ -2,28 +2,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    <RelativeLayout
-        android:id="@+id/rl"
-        android:orientation="horizontal"
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="43dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="#FF1493"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:text="御泥坊VIP商城"/>
-    </RelativeLayout>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:textColor="#FF1493"
+        android:gravity="center"
+        android:text="御泥坊VIP商城"/>
     <com.youth.banner.Banner
-        android:layout_below="@id/rl"
         android:id="@+id/banner"
         android:layout_width="match_parent"
         android:layout_height="217dp"/>
     <GridView
         android:id="@+id/gv"
-        android:layout_below="@id/banner"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="100dp"
         android:numColumns="4"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_twe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    </LinearLayout>
+</ScrollView>
 </RelativeLayout>
