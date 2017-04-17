@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="43dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#FF1493"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="御泥坊VIP商城"/>
+    </RelativeLayout>
+    <com.youth.banner.Banner
+        android:layout_below="@id/rl"
+        android:id="@+id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="217dp"/>
+    <GridView
+        android:id="@+id/gv"
+        android:layout_below="@id/banner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="4"/>
+</RelativeLayout>
