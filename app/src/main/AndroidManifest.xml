@@ -22,6 +22,10 @@
         </activity>
         <activity android:name="com.example.administrator.commodityproject.Activity.WebViewActivity">
         </activity>
+        <activity android:name="com.example.administrator.commodityproject.Activity.Main2Activity">
+        </activity>
+        <activity android:name="com.example.administrator.commodityproject.Activity.GalleryActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -9,6 +9,15 @@ package com.example.administrator.commodityproject.Bean;
 public class Ab5Bean {
     private String title;
     private String img;
+    private String url;
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getTitle() {
         return title;
@@ -26,9 +35,9 @@ public class Ab5Bean {
         this.img = img;
     }
 
-    public Ab5Bean(String title, String img) {
-
+    public Ab5Bean(String title, String img, String url) {
         this.title = title;
         this.img = img;
+        this.url = url;
     }
 }

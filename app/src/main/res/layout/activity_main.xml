@@ -5,7 +5,7 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_login"
+    android:background="@android:color/white"
     tools:context="com.example.administrator.commodityproject.Activity.MainActivity">
 
   <LinearLayout

@@ -1,9 +1,7 @@
-package com.example.administrator.commodityproject.Fragment;
+package com.example.administrator.commodityproject.Adapter;
 
-import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -21,7 +19,7 @@ import java.util.List;
  * 时间：2017/4/17 14:25
  */
 
-class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyRecyclerHolder>{
+public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.MyRecyclerHolder>{
 
     private final FragmentActivity homeFragment;
     private final List<GoodsBean> goodsListBeanXList;

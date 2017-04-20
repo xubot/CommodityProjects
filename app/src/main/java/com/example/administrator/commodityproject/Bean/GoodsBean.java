@@ -7,6 +7,15 @@ package com.example.administrator.commodityproject.Bean;
  */
 
 public class GoodsBean {
+    private String id;
+
+    public GoodsBean(String id, String img, String name, String shop_price) {
+        this.id = id;
+        this.img = img;
+        this.name = name;
+        this.shop_price = shop_price;
+    }
+
     private String img;
     private String name;
     private String shop_price;
@@ -35,10 +44,11 @@ public class GoodsBean {
         this.shop_price = shop_price;
     }
 
-    public GoodsBean(String img, String name, String shop_price) {
+    public String getId() {
+        return id;
+    }
 
-        this.img = img;
-        this.name = name;
-        this.shop_price = shop_price;
+    public void setId(String id) {
+        this.id = id;
     }
 }
