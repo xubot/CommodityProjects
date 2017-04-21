@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name="com.example.administrator.commodityproject.Utils.AppData"
@@ -25,6 +26,10 @@
         <activity android:name="com.example.administrator.commodityproject.Activity.Main2Activity">
         </activity>
         <activity android:name="com.example.administrator.commodityproject.Activity.GalleryActivity">
+        </activity>
+        <activity android:name="com.example.administrator.commodityproject.Activity.RegisteredActivity">
+        </activity>
+        <activity android:name="com.example.administrator.commodityproject.Activity.LogInActivity">
         </activity>
     </application>
 

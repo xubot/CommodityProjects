@@ -32,6 +32,8 @@ public class GalleryActivity extends AppCompatActivity implements DataInterface,
     private TextView activity_one;
     private TextView activity_twe;
     private TextView activity_three;
+    private Button addcar;
+    private Button pay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +46,10 @@ public class GalleryActivity extends AppCompatActivity implements DataInterface,
         sales_volume = (TextView) findViewById(R.id.sales_volume);
         collect_count = (TextView) findViewById(R.id.collect_count);
         //购物车和支付
-        Button addcar= (Button) findViewById(R.id.addcar);
-        Button pay= (Button) findViewById(R.id.pay);
-
+        addcar = (Button) findViewById(R.id.addcar);
+        pay = (Button) findViewById(R.id.pay);
+        addcar.setOnClickListener(this);
+        pay.setOnClickListener(this);
         activity_one = (TextView) findViewById(R.id.Activity_one);
         activity_twe = (TextView) findViewById(R.id.Activity_twe);
         activity_three = (TextView) findViewById(R.id.Activity_three);
@@ -110,17 +113,24 @@ public class GalleryActivity extends AppCompatActivity implements DataInterface,
                 Intent intent_one = new Intent(GalleryActivity.this, WebViewActivity.class);
                 intent_one.putExtra("url",activityBeanList.get(0).getDescription());
                 startActivity(intent_one);
-                break;
+            break;
             case R.id.Activity_twe :
                 Intent intent_twe = new Intent(GalleryActivity.this, WebViewActivity.class);
                 intent_twe.putExtra("url",activityBeanList.get(0).getDescription());
                 startActivity(intent_twe);
-                break;
+            break;
             case R.id.Activity_three :
                 Intent intent_three = new Intent(GalleryActivity.this, WebViewActivity.class);
                 intent_three.putExtra("url",activityBeanList.get(0).getDescription());
                 startActivity(intent_three);
+            break;
+            case R.id.addcar :
+                setAddShop();
                 break;
         }
+    }
+
+    private void setAddShop() {
+       String path="http://169.254.217.5:8080/bullking1/cart";
     }
 }
